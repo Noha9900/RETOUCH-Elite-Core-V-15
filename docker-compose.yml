@@ -1,0 +1,17 @@
+# This bot is developed by **RETOUCH**
+version: '3.8'
+
+services:
+  retouch-elite:
+    build: .
+    container_name: retouch_v15_engine
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10mb"
+        max-file: "3"
