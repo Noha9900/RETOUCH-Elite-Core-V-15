@@ -1,0 +1,7 @@
+hydrogram
+pymongo[srv]
+motor
+python-dotenv
+asyncio
+pyspellchecker
+imdbpy
