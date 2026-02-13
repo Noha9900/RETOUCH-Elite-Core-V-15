@@ -1,0 +1,9 @@
+# This bot is developed by **RETOUCH**
+.git
+.env
+__pycache__
+*.pyc
+venv/
+.dockerignore
+node_modules/
+retouch.log
