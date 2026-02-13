@@ -1,21 +1,15 @@
 #!/bin/bash
 # This bot is developed by **RETOUCH**
 
-echo "🚀 INITIALIZING RETOUCH ELITE DEPLOYMENT..."
+echo "🚀 INITIALIZING RETOUCH ELITE INSTALLATION..."
+sudo apt update && sudo apt upgrade -y
+sudo apt install python3-pip python3-venv -y
 
-# Update System
-sudo apt-get update && sudo apt-get upgrade -y
+echo "📦 SETTING UP VIRTUAL ENVIRONMENT..."
+python3 -m venv venv
+source venv/bin/activate
 
-# Install Docker if not present
-if ! [ -x "$(command -v docker)" ]; then
-  echo "📦 Installing Docker..."
-  curl -fsSL https://get.docker.com -o get-docker.sh
-  sh get-docker.sh
-fi
+echo "⚡ INSTALLING DEPENDENCIES..."
+pip install -r requirements.txt
 
-# Build and Run
-echo "⚡ Building RETOUCH Containers..."
-sudo docker build -t retouch-bot .
-sudo docker run -d --name retouch-engine --restart always retouch-bot
-
-echo "✅ SYSTEM ACTIVE. CHECK LOGS WITH: sudo docker logs -f retouch-engine"
+echo "✅ SETUP COMPLETE. RUN 'python3 bot.py' TO START."
